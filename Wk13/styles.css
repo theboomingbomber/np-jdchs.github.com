@@ -11,6 +11,10 @@ h1 {
     font-size: 30pt;
 }
 
+h2 {
+    line-height: 10px;
+}
+
 div.sort {
     text-align: right;
 }
