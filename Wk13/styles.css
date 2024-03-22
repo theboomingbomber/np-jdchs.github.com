@@ -14,6 +14,12 @@ div.sort {
     text-align: right;
 }
 
+select {
+    font-family: "Gabarito", sans-serif;
+    border-radius: 5px;
+    background-color: #c6bbd6;
+}
+
 button {
     margin: 5px;
     padding: 5px;
