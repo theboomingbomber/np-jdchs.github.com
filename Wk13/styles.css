@@ -23,6 +23,10 @@ button {
     cursor: pointer;
     scale: 1;
     transition: all 0.2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 button:hover {
