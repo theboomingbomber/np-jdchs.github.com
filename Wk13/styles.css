@@ -70,6 +70,11 @@ dialog .close {
     top: 10px;
 }
 
+h1.modal-title {
+    margin-right: 33px;
+    margin-left: 33px;
+}
+
 dt {
     font-weight: bold;
 }
