@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parish Directory</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+</head>
+
+<body>
+    <h1>Parish Directory</h1>
+
+    <!-- Dropdown for sorting options -->
+    <div class="sort">
+        <label for="sort">Sort by:</label>
+        <select id="sort">
+            <option value="alphabetical">Alphabetical</option>
+            <option value="city">By City</option>
+            <option value="county">By County</option>
+        </select>
+    </div>
+
+    <!-- List of links (parishes) -->
+    <ul id="parish-list">
+        <!-- Parish items will be added dynamically here -->
+    </ul>
+
+    <!-- Modals -->
+    <dialog id="our_lady_of_the_snows_center" class="modal">
+        <div class="modal-content">
+            <button class="close"
+                onclick="document.getElementById('our_lady_of_the_snows_center').close()">&times;</button>
+
+            <h1>
+                beans
+            </h1>
+
+            <dl>
+                <dt>Church:</dt>
+                <dd>10189 E Highway 210, Alta UT 84092</dd>
+
+                <dt>Masses:</dt>
+                <dd>Sunday after Thanksgiving through last Sunday in April, 5:00 pm; Christmas Eve: 8:00 pm; Easter
+                    Vigil: 8:00 pm</dd>
+            </dl>
+
+            <p>Modal 1 content.</p>
+        </div>
+    </dialog>
+
+    <dialog id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('modal2').close()">&times;</span>
+            <p>Modal 2 content.</p>
+        </div>
+    </dialog>
+    <dialog id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('modal3').close()">&times;</span>
+            <p>Modal 3 content.</p>
+        </div>
+    </dialog>
+    <dialog id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('modal4').close()">&times;</span>
+            <p>Modal 4 content.</p>
+        </div>
+    </dialog>
+    <dialog id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('modal5').close()">&times;</span>
+            <p>Modal 5 content.</p>
+        </div>
+    </dialog>
+
+    <script>
+
+
+        // List of parishes (you can replace this with your actual data)
+        var parishes = [
+            { name: "Our Lady Of The Snows Center", city: "Alta", county: "Salt Lake County", parishID: "our_lady_of_the_snows_center" },
+            { name: "St. Peter Mission", city: "American Fork", county: "Utah County", parishID: "st._peter_mission" },
+            { name: "Communion Service:", city: "Blanding", county: "San Juan", parishID: "communion_service:" },
+            { name: "St. Olaf", city: "Bountiful", county: "Davis County", parishID: "st._olaf" },
+            { name: "Served By:", city: "Brian Head", county: "Iron County", parishID: "served_by:" },
+            { name: "St. Henry", city: "Brigham City", county: "Box Elder County", parishID: "st._henry" },
+            { name: "St. Dominic Mission", city: "Bryce Canyon", county: "Garfield County", parishID: "st._dominic_mission" },
+            { name: "Christ The King", city: "Cedar City", county: "Iron County", parishID: "christ_the_king" },
+            { name: "Immaculate Conception", city: "Copperton", county: "Salt Lake County", parishID: "immaculate_conception" },
+            { name: "St. John Bosco Mission", city: "Delta", county: "Millard County", parishID: "st._john_bosco_mission" },
+            { name: "St. John The Baptist Mission", city: "Draper", county: "Salt Lake County", parishID: "st._john_the_baptist_mission" },
+            { name: "Holy Spirit Mission", city: "Duchesne", county: "Duchesne County", parishID: "holy_spirit_mission" },
+            { name: "Served By:", city: "Duck Creek", county: "Iron County", parishID: "served_by:" },
+            { name: "Our Lady Of Guadalupe Chapel", city: "Dugway Proving Grounds", county: "Tooele County, Military", parishID: "our_lady_of_guadalupe_chapel" },
+        ];
+
+        // Function to create parish list items
+        function createParishListItem(parish) {
+            var button = document.createElement('button');
+            button.textContent = parish.name;
+            button.onclick = function () {
+                document.getElementById(parish.parishID).showModal();
+            };
+            return button;
+        }
+
+        // Function to render the parish list
+        function renderParishList(parishes) {
+            var parishList = document.getElementById('parish-list');
+            parishList.innerHTML = ""; // Clear existing list
+
+            var sortOption = document.getElementById('sort').value;
+            var groupedParishes = {};
+
+            // Group parishes by city or county based on sorting option
+            parishes.forEach(function (parish) {
+                var groupKey = sortOption === 'city' ? parish.city : (sortOption === 'county' ? parish.county : 'other');
+                if (!groupedParishes[groupKey]) {
+                    groupedParishes[groupKey] = [];
+                }
+                groupedParishes[groupKey].push(parish);
+            });
+
+            // If sorting alphabetically, just display parishes without titles
+            if (sortOption === 'alphabetical') {
+                Object.values(groupedParishes).forEach(function (group) {
+                    group.forEach(function (parish) {
+                        var listItem = createParishListItem(parish);
+                        parishList.appendChild(listItem);
+                    });
+                });
+            } else {
+                // If sorting by city or county, display parishes under city or county titles
+                Object.entries(groupedParishes).forEach(function ([key, value]) {
+                    var title = document.createElement('h2');
+                    title.textContent = key;
+                    parishList.appendChild(title);
+                    value.forEach(function (parish) {
+                        var listItem = createParishListItem(parish);
+                        parishList.appendChild(listItem);
+                    });
+                });
+            }
+        }
+
+        // Function to sort the parish list based on the selected option
+        function sortParishes() {
+            var sortOption = document.getElementById('sort').value;
+            renderParishList(parishes.sort(function (a, b) {
+                if (sortOption === 'alphabetical') {
+                    return a.name.localeCompare(b.name);
+                } else if (sortOption === 'city') {
+                    return a.city.localeCompare(b.city) || a.name.localeCompare(b.name);
+                } else if (sortOption === 'county') {
+                    return a.county.localeCompare(b.county) || a.name.localeCompare(b.name);
+                }
+            }));
+        }
+
+        // Event listener for changes in the sorting dropdown
+        document.getElementById('sort').addEventListener('change', sortParishes);
+
+        // Initial rendering of the parish list
+        sortParishes();
+
+
+        // Get all modals
+        var modals = document.querySelectorAll('.modal');
+
+        // Add event listener to each modal
+        modals.forEach(function (modal) {
+            modal.addEventListener('click', function (event) {
+                // Check if the click occurred outside the modal content
+                if (event.target === modal) {
+                    modal.close(); // Close the modal
+                }
+            });
+        });
+
+
+        let navigation = new URL(window.location.href).hash;
+
+        if (navigation != null && navigation != '') {
+            document.getElementById(navigation.substring(1)).showModal();
+        }
+
+
+        (function () {
+
+            var parallax = document.querySelectorAll("body"),
+                speed = 0.5;
+
+            window.onscroll = function () {
+                [].slice.call(parallax).forEach(function (el, i) {
+
+                    var windowYOffset = window.pageYOffset,
+                        elBackgrounPos = "50% " + (windowYOffset * speed) + "px";
+
+                    el.style.backgroundPosition = elBackgrounPos;
+
+                });
+            };
+
+        })();
+
+    </script>
+
+</body>
+
+</html>

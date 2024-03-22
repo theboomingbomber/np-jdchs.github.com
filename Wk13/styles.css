@@ -1,0 +1,52 @@
+body {
+    background-color: #DFDBE5;
+    padding: 50px;
+    padding-top: 10px;
+    font-family: "Gabarito", sans-serif;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+div.sort {
+    text-align: right;
+}
+
+button {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 12pt;
+    background-color: #dcd6e6;
+    cursor: pointer;
+
+}
+
+
+dialog {
+    width: 50%;
+    padding: 10px;
+    background-color: bisque;
+    max-width: 650px;
+}
+
+div.modal-content {
+    margin-top: -20px !important;
+}
+
+.dialog::backdrop {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+dialog .close {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+dt {
+    font-weight: bold;
+}
