@@ -31,9 +31,9 @@
     </ul>
 
     <!-- Modals -->
+    <div class="modals">
 
-
-
+    </div>
 
     <script>
 
@@ -177,6 +177,58 @@
 
         // Initial rendering of the parish list
         sortParishes();
+
+        // Function to create dialogs
+        function createDialog(parish) {
+            var dialog = document.createElement('dialog');
+            dialog.id = parish.parishID;
+            dialog.classList.add('modal');
+
+            var content = document.createElement('div');
+            content.classList.add('modal-content');
+
+            var closeButton = document.createElement('button');
+            closeButton.classList.add('close');
+            closeButton.innerHTML = '&times;';
+            closeButton.onclick = function () {
+                document.getElementById(parish.parishID).close();
+            };
+
+            var title = document.createElement('h1');
+            title.classList.add('modal-title');
+            title.textContent = parish.name;
+
+            var definitionList = document.createElement('dl');
+
+            // Check if terms and definitions exist and have the same length
+            if (parish.terms && parish.definitions && parish.terms.length === parish.definitions.length) {
+                for (var i = 0; i < parish.terms.length; i++) {
+                    var dt = document.createElement('dt');
+                    dt.textContent = parish.terms[i];
+
+                    var dd = document.createElement('dd');
+                    dd.textContent = parish.definitions[i];
+
+                    definitionList.appendChild(dt);
+                    definitionList.appendChild(dd);
+                }
+            } else {
+                console.error('Terms or definitions are missing or do not match in length for parish: ', parish.name);
+            }
+
+            content.appendChild(closeButton);
+            content.appendChild(title);
+            content.appendChild(definitionList);
+
+            dialog.appendChild(content);
+
+            document.querySelector('.modals').appendChild(dialog);
+        }
+
+        // Create dialogs for each entry in the parishes array
+        parishes.forEach(function (parish) {
+            createDialog(parish);
+        });
 
 
         // Get all modals
