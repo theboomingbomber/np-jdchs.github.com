@@ -21,7 +21,13 @@ button {
     font-size: 12pt;
     background-color: #dcd6e6;
     cursor: pointer;
+    scale: 1;
+    transition: all 0.2s;
+}
 
+button:hover {
+    box-shadow: 5px 10px 15px #888888;
+    scale: 1.03;
 }
 
 
@@ -30,6 +36,8 @@ dialog {
     padding: 10px;
     background-color: bisque;
     max-width: 650px;
+    min-width: 350px;
+    border-radius: 10px;
 }
 
 div.modal-content {
