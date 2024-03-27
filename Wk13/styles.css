@@ -78,3 +78,19 @@ h1.modal-title {
 dt {
     font-weight: bold;
 }
+
+
+
+
+div.map {
+    width: 500px;
+    height: 625px;
+    margin: auto;
+    background: url(./map_files/utah/map_bg.svg) no-repeat center;
+    background-size: contain;
+}
+
+div.map img {
+
+    scale: 0.45;
+}
