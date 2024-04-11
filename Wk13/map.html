@@ -12,6 +12,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
 </head>
+<script>
+    window.onload = function () {
+        var image = document.getElementById('dynamic-image');
+        var originalWidth = image.naturalWidth;
+        var originalHeight = image.naturalHeight;
+
+        var areas = document.getElementsByTagName('area');
+        var originalCoords = [];
+
+        // Store the original coordinates
+        for (var i = 0; i < areas.length; i++) {
+            originalCoords[i] = areas[i].coords.split(',');
+        }
+
+        function resizeMap() {
+            var currentWidth = image.offsetWidth;
+            var currentHeight = image.offsetHeight;
+
+            var widthScaleFactor = currentWidth / originalWidth;
+            var heightScaleFactor = currentHeight / originalHeight;
+
+            // Update the coordinates based on the scale factor
+            for (var i = 0; i < areas.length; i++) {
+                var newCoords = [];
+                for (var j = 0; j < originalCoords[i].length; j++) {
+                    if (j % 2 == 0) {
+                        newCoords[j] = originalCoords[i][j] * widthScaleFactor;
+                    } else {
+                        newCoords[j] = originalCoords[i][j] * heightScaleFactor;
+                    }
+                }
+                areas[i].coords = newCoords.join(',');
+            }
+        }
+
+        // Call resizeMap initially and whenever the window is resized
+        resizeMap();
+        window.onresize = resizeMap;
+    }
+</script>
 
 <body>
     <div class="map">
