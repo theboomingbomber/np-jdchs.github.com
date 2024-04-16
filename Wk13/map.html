@@ -50,12 +50,179 @@
         // Call resizeMap initially and whenever the window is resized
         resizeMap();
         window.onresize = resizeMap;
+
+        var modals = document.querySelectorAll('.modal');
+
+        // Add event listener to each modal
+        modals.forEach(function (modal) {
+            modal.addEventListener('click', function (event) {
+                // Check if the click occurred outside the modal content
+                if (event.target === modal) {
+                    modal.close(); // Close the modal
+                }
+            });
+        });
     }
 </script>
 
 <body>
-    <div class="map">
+    <h1>Da Map</h1>
 
-        <a href="www.google.com"><img src="./map_files/utah/parishes/brigham_city-st_henry.svg" alt=""></a>
+    <div id="image-container">
+        <img id="dynamic-image" src="./map_files/utah/map_bg.svg" alt="map" usemap="#image-map">
+
+
+        <map name="image-map">
+
+            <!-- Salt Lake City Zoom -->
+            <area title="Salt Lake Zoom" alt="Click to Zoom into Salt Lake"
+                onclick="document.getElementById('SLC_Zoom').showModal();" shape="circle" class="hover"
+                coords="447, 385, 52"> <!-- Magnifying Glass Circle -->
+            <area title="Salt Lake Zoom" alt="Click to Zoom into Salt Lake"
+                onclick="document.getElementById('SLC_Zoom').showModal();" shape="poly" class="hover"
+                coords="405, 414, 421.5, 429, 397, 453.5, 383.5, 440"> <!-- Magnifying Glass Circle -->
+            <!-- Utah Missions -->
+            <area title="St. Peter Mission" alt="St. Peter Mission, American Fork"
+                href="./index.html#american_fork-st_peter_mission" shape="poly"
+                coords="483, 444.5, 501.5, 444.5, 523, 472.5, 523, 498, 466, 498, 467.5, 471">
+            <area title="St. Dominic Mission" alt="St. Dominic Mission, Bryce Canyon"
+                href="./index.html#bryce_canyon-st_dominic_mission" shape="poly"
+                coords="401.5, 1196.5, 420, 1196.5, 452.5, 1226, 454, 1250.5, 369.5, 1252, 369.5, 1226, 391.5, 1211">
+            <area title="St. John Bosco Mission" alt="St. John Bosco Mission, Delta"
+                href="./index.html#delta-st_john_bosco_mission" shape="poly"
+                coords="309.5, 721, 328, 721, 366.5, 764.5, 366.5, 776.5, 276, 776.5, 276, 764.5">
+            <area title="Holy Spirit Mission" alt="Holy Spirit Mission, Duchesne"
+                href="./index.html#duchesne-holy_spirit_mission" shape="poly"
+                coords="741, 509.5, 761, 510, 782.5, 539.5, 782, 565, 719.5, 565, 720, 536.5">
+            <area title="San Isidro Mission" alt="San Isidro Mission, Elberta"
+                href="./index.html#elberta-san_isidro_mission" shape="poly"
+                coords="410.5, 545, 493.5, 545, 492, 587, 441.5, 587, 408.5, 580">
+            <area title="St. Jude Mission" alt="St. Jude Mission, Ephraim" href="./index.html#ephraim-st_jude_mission"
+                shape="poly" coords="530.5, 696.5, 542.5, 696.5, 565.5, 726, 567, 751, 508, 751, 509.5, 725">
+            <area title="Holy Family Mission" alt="Holy Family Mission, Fillmore"
+                href="./index.html#fillmore-holy_family_mission" shape="poly"
+                coords="373.5, 814.5, 390, 814.5, 408, 845, 409, 867, 339, 867, 340.5, 847">
+            <area title="Blessed Kateri Tekakwitha Mission" alt="Blessed Kateri Tekakwitha Mission, Fort Duchesne"
+                href="./index.html#fort_duchesne-blessed_kateri_tekakwitha_mission" shape="poly"
+                coords="884.5, 479.5, 905.5, 478, 948, 510.5, 948, 552.5, 866, 551, 864, 510">
+            <area title="St. Michael The Archangel Mission" alt="St. Michael The Archangel Mission, Green River"
+                href="./index.html#green_river-st_michael_the_archangel_mission" shape="poly"
+                coords="786.5, 816, 805, 816, 836, 849, 837, 886, 757, 887, 758.5, 847">
+            <area title="San Rafael Mission" alt="San Rafael Mission, Huntington"
+                href="./index.html#huntington-san_rafael_mission" shape="poly"
+                coords="648.5, 729, 665, 729, 709, 762, 710, 783, 605, 782, 606, 762">
+            <area title="St. Florence Mission" alt="St. Florence Mission, Huntsville"
+                href="./index.html#huntsville-st_florence_mission" shape="poly"
+                coords="557, 167, 621.5, 167, 621.5, 193, 576, 221, 551.5, 220">
+            <area title="Sacred Heart Mission" alt="Sacred Heart Mission, La Sal"
+                href="./index.html#la_sal-sacred_heart_mission" shape="poly"
+                coords="1000, 999, 1019.5, 999, 1045.5, 1041.5, 1045.5, 1053.5, 972, 1053.5, 973, 1039.5">
+            <area title="Holy Family Catholic Church" alt="Holy Family Catholic Church, Ogden"
+                href="./index.html#ogden-holy_family_catholic_church" shape="poly"
+                coords="379.5, 200.5, 395.5, 201.5, 399, 222.5, 398.5, 224, 382, 249, 341, 248, 344, 222.5">
+            <area title="St. Gertrude Mission" alt="St. Gertrude Mission, Panguitch"
+                href="./index.html#panguitch-st_gertrude_mission" shape="poly"
+                coords="350.5, 1151.5, 367, 1152.5, 393, 1181.5, 393, 1205.5, 322.5, 1205.5, 324, 1180.5">
+            <area title="Shh... Secret Bell" alt="Secret Bell" href="./index.html#secret_Bell" shape="poly" coords="">
+            <area title="St. Anthony Of The Desert Mission" alt="St. Anthony Of The Desert Mission, Torrey"
+                href="./index.html#torrey-st_anthony_of_the_desert_mission" shape="poly"
+                coords="567.5, 981, 586, 981, 617, 1022, 617, 1050, 533, 1050, 534.5, 1023.5">
+            <area title="Santa Ana Mission" alt="Santa Ana Mission, Tremonton"
+                href="./index.html#tremonton-santa_ana_mission" shape="poly"
+                coords="297.5, 93, 312, 93, 336.5, 124, 336, 148.5, 272.5, 148, 272.5, 124">
+            <area title="Mission San Felipe" alt="Mission San Felipe, Wendover"
+                href="./index.html#wendover-mission_san_felipe" shape="poly"
+                coords="10, 369, 72, 369, 72, 426, 10, 426">
+            <!-- Utah Parishes -->
+            <area title="St. Henry" alt="St. Henry, Brigham City" href="./index.html#brigham_city-st_henry" shape="poly"
+                coords="376.5, 91.5, 401, 91.5, 426, 132.5, 426, 159, 348, 158.5">
+            <area title="Christ The King" alt="Christ The King, Cedar City"
+                href="./index.html#cedar_city-christ_the_king" shape="poly"
+                coords="135.5, 1196.5, 177.5, 1184.5, 196.5, 1171.5, 227, 1171.5, 227, 1225, 132.5, 1222.5">
+            <area title="Good Shepherd" alt="Good Shepherd, East Carbon City"
+                href="./index.html#east_carbon_city-good_shepherd" shape="poly"
+                coords="786, 629, 858.5, 629, 858.5, 640.5, 850, 684.5, 777, 684.5, 770.5, 663, 770.5, 650.5">
+            <area title="St. Patrick" alt="St. Patrick, Eureka" href="./index.html#eureka-st_patrick" shape="poly"
+                coords="390, 635, 452, 626, 478.5, 626, 477.5, 669, 453, 669, 390, 662.5">
+            <area title="St. Anthony Of Padua" alt="St. Anthony Of Padua, Helper"
+                href="./index.html#helper-st_anthony_of_padua" shape="poly"
+                coords="676.5, 622, 710, 622, 769, 633, 769, 655, 701, 662, 684.5, 662, 678, 647.5">
+            <area title="St. Christopher" alt="St. Christopher, Kanab" href="./index.html#kanab-st_christopher"
+                shape="poly" coords="335, 1332, 364, 1332, 423, 1338, 447, 1354, 447, 1371, 335, 1374.5">
+            <area title="St. Thomas Aquinas" alt="St. Thomas Aquinas, Logan" href="./index.html#logan-st_thomas_aquinas"
+                shape="poly" coords="457.5, 96, 478, 96, 555.5, 141.5, 555.5, 153.5, 447, 152.5, 447, 141.5">
+            <area title="St. Bridget" alt="St. Bridget, Milford" href="./index.html#milford-st_bridget" shape="poly"
+                coords="216, 976, 242, 976, 265.5, 1026, 265.5, 1048, 197.5, 1047, 199, 1023.5">
+            <area title="St. Pius X" alt="St. Pius X, Moab" href="./index.html#moab-st_pius_x" shape="poly"
+                coords="927.5, 896, 952.5, 896, 965.5, 966, 917, 966">
+            <area title="St. Elizabeth" alt="St. Elizabeth, Monroe" href="./index.html#monroe-st_elizabeth" shape="poly"
+                coords="431, 886, 456.5, 886, 484.5, 934.5, 485.5, 954, 408.5, 954, 410, 932.5">
+            <area title="St. Joseph" alt="St. Joseph, Monticello" href="./index.html#monticello-st_joseph" shape="poly"
+                coords="993.5, 1095.5, 1021, 1095.5, 1030.5, 1126.5, 1042.5, 1138.5, 1043.5, 1164.5, 974, 1164.5, 975, 1137.5, 985, 1127.5">
+            <area title="St. Mary Of The Assumption" alt="St. Mary Of The Assumption, Park City"
+                href="./index.html#park_city-st_mary_of_the_assumption" shape="poly"
+                coords="551.5, 317, 578.5, 317, 631.5, 338, 631.5, 365.5, 577, 365.5, 551.5, 355.5">
+            <area title="San Andres" alt="San Andres, Payson" href="./index.html#payson-san_andres" shape="poly"
+                coords="538.5, 477.5, 567, 478, 584.5, 519.5, 585.5, 542.5, 521, 542.5, 521, 519.5">
+            <area title="Notre Dame De Lourdes" alt="Notre Dame De Lourdes, Price"
+                href="./index.html#price-notre_dame_de_lourdes" shape="poly"
+                coords="636, 652, 659.5, 652, 675.5, 663, 703.5, 666.5, 723.5, 680, 722.5, 706, 637, 706">
+            <area title="St. Francis Of Assisi" alt="St. Francis Of Assisi, Provo"
+                href="./index.html#provo-st_francis_of_assisi" shape="poly"
+                coords="402.5, 452, 428, 453, 464, 495, 464, 533, 404, 533">
+            <area title="St. Helen" alt="St. Helen, Roosevelt" href="./index.html#roosevelt-st_helen" shape="poly"
+                coords="817.5, 422, 841.5, 422, 857.5, 461.5, 859.5, 489, 795, 489, 796, 462.5">
+            <area title="St. George" alt="St. George, St. George" href="./index.html#st_george-st_george" shape="poly"
+                coords="47.5, 1332.5, 74.5, 1332.5, 90, 1349, 136.5, 1354, 136.5, 1383.5, 60.5, 1383.5, 45.5, 1373">
+            <area title="St. Marguerite" alt="St. Marguerite, Tooele" href="./index.html#tooele-st_marguerite"
+                shape="poly" coords="332, 394.5, 354, 394.5, 383, 453, 383, 465, 301.5, 465, 301.5, 452">
+            <area title="St. James" alt="St. James, Vernal" href="./index.html#vernal-st_james" shape="poly"
+                coords="944.5, 386.5, 976.5, 386.5, 982.5, 423.5, 992, 433, 992, 457.5, 932.5, 456.5, 932.5, 430.5, 943.5, 422">
+            <!-- Utah Stations -->
+            <area title="Blanding Station" alt="Blanding Station, Blanding"
+                href="./index.html#blanding-blanding_station" shape="poly"
+                coords="1007.5, 1294.5, 1023.5, 1294.5, 1043, 1325.5, 1043, 1336, 989.5, 1336, 990.5, 1322.5">
+            <area title="St. Olaf" alt="St. Olaf, Bountiful" href="./index.html#bountiful-st_olaf" shape="poly"
+                coords="445.5, 298.5, 456.5, 290.5, 519, 296, 523, 339.5, 479.5, 337, 448, 328.5">
+            <area title="Brian Head Station" alt="Brian Head Station, Brian Head"
+                href="./index.html#brian_head-brian_head_station" shape="poly"
+                coords="235, 1207, 287, 1207, 287, 1248, 235, 1248">
+            <area title="Central Utah Correctional Facility (Cucf)"
+                alt="Central Utah Correctional Facility (Cucf), Gunnison"
+                href="./index.html#gunnison-central_utah_correctional_facility_(cucf)" shape="poly"
+                coords="448, 794, 523, 797, 520.5, 825.5, 447.5, 825.5">
+            <area title="Hanksville Station" alt="Hanksville Station, Hanksville"
+                href="./index.html#hanksville-hanksville_station" shape="poly"
+                coords="740.5, 995.5, 759.5, 995.5, 789.5, 1023, 793, 1066.5, 712.5, 1066.5, 716, 1023">
+            <area title="Lake Powell Station" alt="Lake Powell Station, Lake Powell"
+                href="./index.html#lake_powell-lake_powell_station" shape="poly"
+                coords="766.5, 1228.5, 784, 1228.5, 817.5, 1257.5, 817, 1285, 742.5, 1284.5, 742.5, 1256">
+            <area title="St. Rose Of Lima" alt="St. Rose Of Lima, Layton" href="./index.html#layton-st_rose_of_lima"
+                shape="poly" coords="382, 259.5, 436.5, 255, 448, 293.5, 439, 302.5, 352.5, 302.5, 354, 279.5">
+            <area title="Our Lady Of Victory Mission" alt="Our Lady Of Victory Mission, Nephi"
+                href="./index.html#nephi-our_lady_of_victory_mission" shape="poly"
+                coords="430, 688.5, 486.5, 688.5, 486.5, 724.5, 430, 724.5">
+            <area title="Beryl Junction, No Additional Information" alt="Beryl Junction, No Additional Information"
+                href="./index.html#oh_no" shape="poly"
+                coords="49.5, 1187.5, 67, 1187.5, 102, 1214, 102, 1231.5, 19.5, 1233, 19.5, 1214">
+
+        </map>
     </div>
+
+    <div class="modals">
+        <!-- SLC Zoom Modal-->
+        <dialog id="SLC_Zoom" class="modal">
+            <div class="modal-content"><button onclick="document.getElementById('SLC_Zoom').close();"
+                    class="close">×</button>
+
+            </div>
+        </dialog>
+    </div>
+
+
+    button.onclick = function() {
+    document.getElementById(parish.parishID).showModal();
+    }
+
+
 </body>

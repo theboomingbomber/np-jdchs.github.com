@@ -93,3 +93,7 @@ dt {
 
 }
 
+
+area.hover {
+    cursor: pointer;
+}
