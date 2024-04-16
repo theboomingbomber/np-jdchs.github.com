@@ -64,11 +64,18 @@
         });
     }
 
+    document.addEventListener("DOMContentLoaded", function() {
     let navigation = new URL(window.location.href).hash;
 
     if (navigation != null && navigation != '') {
-        document.getElementById(navigation.substring(1)).showModal();
+        let element = document.getElementById(navigation.substring(1));
+        if (element) {
+            element.showModal();
+        } else {
+            console.error('No element with id:', navigation.substring(1));
+        }
     }
+});
 
 </script>
 
@@ -234,17 +241,9 @@
     <div class="modals">
         <!-- SLC Zoom Modal-->
         <dialog id="SLC_Zoom" class="modal">
-            <div class="modal-content"><button onclick="document.getElementById('SLC_Zoom').close();"
-                    class="close">×</button>
-
+            <div class="modal-content">
+                <button onclick="document.getElementById('SLC_Zoom').close();" class="close">×</button>
             </div>
         </dialog>
     </div>
-
-
-    button.onclick = function() {
-    document.getElementById(parish.parishID).showModal();
-    }
-
-
 </body>
