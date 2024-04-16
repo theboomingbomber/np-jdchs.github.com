@@ -64,18 +64,18 @@
         });
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-    let navigation = new URL(window.location.href).hash;
+    document.addEventListener("DOMContentLoaded", function () {
+        let navigation = new URL(window.location.href).hash;
 
-    if (navigation != null && navigation != '') {
-        let element = document.getElementById(navigation.substring(1));
-        if (element) {
-            element.showModal();
-        } else {
-            console.error('No element with id:', navigation.substring(1));
+        if (navigation != null && navigation != '') {
+            let element = document.getElementById(navigation.substring(1));
+            if (element) {
+                element.showModal();
+            } else {
+                console.error('No element with id:', navigation.substring(1));
+            }
         }
-    }
-});
+    });
 
 </script>
 
@@ -87,7 +87,6 @@
 
 
         <map name="image-map">
-
             <!-- Salt Lake City Zoom -->
             <area title="Salt Lake Zoom" alt="Click to Zoom into Salt Lake"
                 onclick="document.getElementById('SLC_Zoom').showModal();" shape="circle" class="hover"
@@ -219,22 +218,27 @@
             <area title="Beryl Junction, No Additional Information" alt="Beryl Junction, No Additional Information"
                 href="./index.html#oh_no" shape="poly"
                 coords="49.5, 1187.5, 67, 1187.5, 102, 1214, 102, 1231.5, 19.5, 1233, 19.5, 1214">
-
             <!-- No Info Locations Begin -->
             <area title="Dutch John, No Additional Information" alt="Dutch John, No Additional Information"
                 href="./index.html#oh_no" shape="poly" coords="853.5, 292, 913.5, 291, 914, 322, 855.5, 322.5">
-            <area title="Tabiona, No Additional Information" alt="Tabiona, No Additional Information"
-                href="./index.html#oh_no" shape="poly" coords="661, 463, 720.5, 463, 722, 508, 661, 508">
             <area title="Marysville, No Additional Information" alt="Marysville, No Additional Information"
                 href="./index.html#oh_no" shape="poly"
                 coords="364.5, 975.5, 384, 975.5, 400.5, 986, 440, 987.5, 443, 1009, 364.5, 1009">
-            <area title="Beryl Junction, No Additional Information" alt="Beryl Junction, No Additional Information"
-                href="./index.html#oh_no" shape="poly"
-                coords="49.5, 1187.5, 67, 1187.5, 102, 1214, 102, 1231.5, 19.5, 1233, 19.5, 1214">
+            <area title="Tabiona, No Additional Information" alt="Tabiona, No Additional Information"
+                href="./index.html#oh_no" shape="poly" coords="661, 463, 720.5, 463, 722, 508, 661, 508">
             <area title="Parowon, No Additional Information" alt="Parowon, No Additional Information"
                 href="./index.html#oh_no" shape="poly"
                 coords="251.5, 1152.5, 305, 1152.5, 304, 1164, 286.5, 1193.5, 268.5, 1193.5, 251.5, 1164">
             <!-- No Info Locations End -->
+            <area title="St. James" alt="St. James, Ogden" href="./index.html#ogden-st_james" shape="poly"
+                coords="523.5, 184.5, 543, 184.5, 547, 193.5, 549, 220.5, 555, 229.5, 555, 240.5, 493.5, 238.5, 493.5, 225.5, 500, 212.5">
+            <area title="St. Joseph" alt="St. Joseph, Ogden" href="./index.html#ogden-st_joseph" shape="poly"
+                coords="402, 201, 420.5, 201, 429.5, 217, 431, 226.5, 444.5, 228.5, 446, 243, 394, 243, 400.5, 223, 398.5, 210.5">
+            <area title="St. Mary" alt="St. Mary, Ogden" href="./index.html#ogden-st_mary" shape="poly"
+                coords="476.5, 181, 499, 182, 499, 207.5, 490.5, 223, 433, 224, 433, 204, 443.5, 192, 471.5, 191">
+            <area title="Zion National Park Station" alt="Zion National Park Station, Zion National Park"
+                href="./index.html#zion_national_park-zion_national_park_station" shape="poly"
+                coords="165.5, 1344.5, 238, 1343.5, 238, 1387.5, 166.5, 1387.5">
         </map>
     </div>
 
