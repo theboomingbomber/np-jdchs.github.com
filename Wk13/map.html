@@ -63,6 +63,13 @@
             });
         });
     }
+
+    let navigation = new URL(window.location.href).hash;
+
+    if (navigation != null && navigation != '') {
+        document.getElementById(navigation.substring(1)).showModal();
+    }
+
 </script>
 
 <body>
