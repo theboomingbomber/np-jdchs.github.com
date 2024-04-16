@@ -37,7 +37,8 @@
 
         <!--Womp Womp-->
         <dialog id="oh_no" class="modal">
-            <div class="modal-content"><button onclick="document.getElementById('oh_no').close();" class="close">×</button>
+            <div class="modal-content"><button onclick="document.getElementById('oh_no').close();"
+                    class="close">×</button>
                 <h1 class="modal-title">oh no...</h1>
                 <dl>
                     <dt>There's no info for this location...</dt>
@@ -236,15 +237,29 @@
                 console.error('Terms or definitions are missing or do not match in length for parish: ', parish.name);
             }
 
+            // Create the new buttons
+            var button1 = document.createElement('button');
+            button1.textContent = 'Go to Map';
+            button1.onclick = function () {
+                window.location.href = './map.html';
+            };
+
+            var button2 = document.createElement('button');
+            button2.textContent = 'Go to SLC Zoom';
+            button2.onclick = function () {
+                window.location.href = './map.html#SLC_Zoom';
+            };
+
             content.appendChild(closeButton);
             content.appendChild(title);
             content.appendChild(definitionList);
+            content.appendChild(button1); // Append the new buttons to the content
+            content.appendChild(button2);
 
             dialog.appendChild(content);
 
             document.querySelector('.modals').appendChild(dialog);
         }
-
         // Create dialogs for each entry in the parishes array
         parishes.forEach(function (parish) {
             createDialog(parish);
