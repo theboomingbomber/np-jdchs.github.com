@@ -63,36 +63,26 @@
             });
         });
     }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        let navigation = new URL(window.location.href).hash;
-
-        if (navigation != null && navigation != '') {
-            let element = document.getElementById(navigation.substring(1));
-            if (element) {
-                element.showModal();
-            } else {
-                console.error('No element with id:', navigation.substring(1));
-            }
-        }
-    });
-
 </script>
 
 <body>
     <h1>Da Map</h1>
 
+    <button class="map_to_directory" onclick="window.location.href='./index.html';">&#8592; Directory</button>
+    <button class="map_to_slc_zoom" onclick="window.location.href='./zoom.html';">SLC Zoom &#8594;</button>
+
+
     <div id="image-container">
-        <img id="dynamic-image" src="./map_files/utah/map_bg.svg" alt="map" usemap="#image-map">
+        <img id="dynamic-image" src="./broad_map.svg" alt="map" usemap="#utah-map">
 
 
-        <map name="image-map">
+        <map name="utah-map">
             <!-- Salt Lake City Zoom -->
             <area title="Salt Lake Zoom" alt="Click to Zoom into Salt Lake"
-                onclick="document.getElementById('SLC_Zoom').showModal();" shape="circle" class="hover"
-                coords="447, 385, 52"> <!-- Magnifying Glass Circle -->
+                href="./zoom.html" shape="circle" class="hover" coords="447, 385, 52">
+            <!-- Magnifying Glass Circle -->
             <area title="Salt Lake Zoom" alt="Click to Zoom into Salt Lake"
-                onclick="document.getElementById('SLC_Zoom').showModal();" shape="poly" class="hover"
+                href="./zoom.html" shape="poly" class="hover"
                 coords="405, 414, 421.5, 429, 397, 453.5, 383.5, 440"> <!-- Magnifying Glass Circle -->
             <!-- Utah Missions -->
             <area title="St. Peter Mission" alt="St. Peter Mission, American Fork"
@@ -240,14 +230,5 @@
                 href="./index.html#zion_national_park-zion_national_park_station" shape="poly"
                 coords="165.5, 1344.5, 238, 1343.5, 238, 1387.5, 166.5, 1387.5">
         </map>
-    </div>
-
-    <div class="modals">
-        <!-- SLC Zoom Modal-->
-        <dialog id="SLC_Zoom" class="modal">
-            <div class="modal-content">
-                <button onclick="document.getElementById('SLC_Zoom').close();" class="close">×</button>
-            </div>
-        </dialog>
     </div>
 </body>

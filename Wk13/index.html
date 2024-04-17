@@ -48,6 +48,9 @@
         </dialog>
     </div>
 
+    <button class="directory_to_slc_zoom" onclick="window.location.href='./zoom.html';">SLC Zoom &#8594;</button>
+    <button class="directory_to_map" onclick="window.location.href='./map.html';">Utah Map &#8594;</button>
+
     <script>
 
 
@@ -247,7 +250,7 @@
             var button2 = document.createElement('button');
             button2.textContent = 'Go to SLC Zoom';
             button2.onclick = function () {
-                window.location.href = './map.html#SLC_Zoom';
+                window.location.href = './zoom.html';
             };
 
             content.appendChild(closeButton);
@@ -281,11 +284,18 @@
         });
 
 
+        document.addEventListener("DOMContentLoaded", function () {
         let navigation = new URL(window.location.href).hash;
 
         if (navigation != null && navigation != '') {
-            document.getElementById(navigation.substring(1)).showModal();
+            let element = document.getElementById(navigation.substring(1));
+            if (element) {
+                element.showModal();
+            } else {
+                console.error('No element with id:', navigation.substring(1));
+            }
         }
+    });
 
     </script>
 

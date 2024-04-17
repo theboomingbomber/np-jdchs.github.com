@@ -45,6 +45,42 @@ button:hover {
     scale: 1.03;
 }
 
+button.directory_to_map {
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+    background-color: #d8d8d8;
+}
+
+button.map_to_directory {
+    position: fixed;
+    left: 5px;
+    bottom: 5px;
+    background-color: #d8d8d8;
+}
+
+button.directory_to_slc_zoom {
+    position: fixed;
+    right: 5px;
+    bottom: 43px;
+    background-color: #d8d8d8;
+}
+
+button.map_to_slc_zoom {
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+    background-color: #d8d8d8;
+}
+
+button.slc_zoom_to_map {
+    position: fixed;
+    left: 5px;
+    bottom: 43px;
+    background-color: #d8d8d8;
+}
+
+
 
 dialog {
     width: 50%;

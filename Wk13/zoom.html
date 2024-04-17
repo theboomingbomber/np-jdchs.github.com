@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="a old ass irrelevant dirrectory of catholic stuff around 1998">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utah Parishes Map</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+</head>
+<script>
+    window.onload = function () {
+        var image = document.getElementById('dynamic-image');
+        var originalWidth = image.naturalWidth;
+        var originalHeight = image.naturalHeight;
+
+        var areas = document.getElementsByTagName('area');
+        var originalCoords = [];
+
+        // Store the original coordinates
+        for (var i = 0; i < areas.length; i++) {
+            originalCoords[i] = areas[i].coords.split(',');
+        }
+
+        function resizeMap() {
+            var currentWidth = image.offsetWidth;
+            var currentHeight = image.offsetHeight;
+
+            var widthScaleFactor = currentWidth / originalWidth;
+            var heightScaleFactor = currentHeight / originalHeight;
+
+            // Update the coordinates based on the scale factor
+            for (var i = 0; i < areas.length; i++) {
+                var newCoords = [];
+                for (var j = 0; j < originalCoords[i].length; j++) {
+                    if (j % 2 == 0) {
+                        newCoords[j] = originalCoords[i][j] * widthScaleFactor;
+                    } else {
+                        newCoords[j] = originalCoords[i][j] * heightScaleFactor;
+                    }
+                }
+                areas[i].coords = newCoords.join(',');
+            }
+        }
+
+        // Call resizeMap initially and whenever the window is resized
+        resizeMap();
+        window.onresize = resizeMap;
+
+        var modals = document.querySelectorAll('.modal');
+
+        // Add event listener to each modal
+        modals.forEach(function (modal) {
+            modal.addEventListener('click', function (event) {
+                // Check if the click occurred outside the modal content
+                if (event.target === modal) {
+                    modal.close(); // Close the modal
+                }
+            });
+        });
+    }
+</script>
+
+<body>
+    <h1>Da Map</h1>
+
+    <button class="map_to_directory" onclick="window.location.href='./index.html';">&#8592; Directory</button>
+    <button class="slc_zoom_to_map" onclick="window.location.href='./map.html';">&#8592; Utah Map</button>
+
+
+    <div id="image-container">
+        <img id="dynamic-image" src="./slc_zoom.svg" alt="map" usemap="#slc-map">
+
+
+        <map name="slc-map">
+            <!-- SLC Missions -->
+            <area title="St. John The Baptist Mission" alt="St. John The Baptist Mission, Draper"
+                href="./index.html#draper-st_john_the_baptist_mission" shape="poly"
+                coords="519, 814, 536.5, 814, 552.5, 843.5, 557.5, 867.5, 557.5, 882.5, 495.5, 882.5, 501.5, 849.5">
+            <!-- SLC Parishes -->
+            <area title="Immaculate Conception" alt="Immaculate Conception, Copperton"
+                href="./index.html#copperton-immaculate_conception" shape="poly"
+                coords="171, 753, 203, 753, 207.55, 779.5, 222.05, 796.5, 221.5, 834, 153, 834, 155, 790.5, 166, 782">
+            <area title="Our Lady Of Perpetual Help" alt="Our Lady Of Perpetual Help, Kearns"
+                href="./index.html#kearns-st_francis_xavier" shape="poly"
+                coords="636, 652, 659.5, 652, 675.5, 663, 703.5, 666.5, 723.5, 680, 722.5, 706, 637, 706">
+            <area title="St. Francis Xavier" alt="St. Francis Xavier, Kearns"
+                href="./index.html#kearns-st_francis_xavier" shape="poly"
+                coords="129, 485, 161, 485, 174.5, 518, 185.5, 530.5, 185.5, 555, 106.5, 555, 106.5, 529, 119.5, 518">
+            <area title="Our Lady Of Lourdes" alt="Our Lady Of Lourdes, Magna"
+                href="./index.html#magna-our_lady_of_lourdes" shape="poly"
+                coords="107, 367, 139, 367, 146, 396, 158, 412.5, 158, 448.5, 92, 448.5, 92, 411, 104, 396">
+            <area title="St. Therese Of The Child Jesus" alt="St. Therese Of The Child Jesus, Midvale"
+                href="./index.html#midvale-st_therese_of_the_child_jesus" shape="poly"
+                coords="484, 569, 516, 569, 524.5, 605.5, 543, 626, 543, 653, 458.5, 653, 458.5, 626, 477, 605.5">
+            <area title="St. Jude" alt="St. Jude, Murray" href="./index.html#murray-st_jude" shape="poly"
+                coords="485, 465, 517, 465, 523.5, 494, 538.5, 517.5, 546.5, 551.5, 457.5, 550.5, 466, 517.5, 482, 492.5">
+            <area title="Cathedral Of The Madeleine" alt="Cathedral Of The Madeleine, Salt Lake City"
+                href="./index.html#salt_lake_city-cathedral_of_the_madeleine" shape="poly"
+                coords="510.5, 214, 531, 214, 586, 224, 595.5, 233.5, 597, 253.5, 589, 262, 510.5, 260, 501.5, 238.5, 500.5, 224">
+            <area title="Our Lady Of Guadalupe" alt="Our Lady Of Guadalupe, Salt Lake City"
+                href="./index.html#salt_lake_city-our_lady_of_guadalupe" shape="poly"
+                coords="347, 183, 379, 183, 385, 220, 394.5, 229.5, 399.5, 256.5, 393.5, 267.5, 334, 266.5, 325.5, 253, 328, 231.5, 346, 218.5">
+            <area title="Our Lady Of Lourdes" alt="Our Lady Of Lourdes, Salt Lake City"
+                href="./index.html#salt_lake_city-our_lady_of_lourdes" shape="poly"
+                coords="534.5, 349.5, 544.5, 342, 553, 342, 562.5, 350.5, 565, 361, 576.5, 364.5, 592.5, 383, 595, 406, 537.5, 406, 534, 403.5">
+            <area title="Sacred Heart" alt="Sacred Heart, Salt Lake City"
+                href="./index.html#salt_lake_city-sacred_heart" shape="poly"
+                coords="451, 275, 483, 275, 489, 312, 505, 321.5, 506, 341.5, 431, 341.5, 430, 320, 450, 310.5">
+            <area title="St. Ambrose" alt="St. Ambrose, Salt Lake City" href="./index.html#salt_lake_city-st_ambrose"
+                shape="poly"
+                coords="628, 335, 660, 335, 666, 372, 680, 380.5, 680, 405, 610, 405.5, 610, 379.5, 627, 370.5">
+            <area title="St. Ann" alt="St. Ann, Salt Lake City" href="./index.html#salt_lake_city-st_ann" shape="poly"
+                coords="464.5, 349.5, 474.5, 343.5, 483.5, 343.5, 494.7, 351.5, 494.7, 389.5, 501.5, 398.5, 500.5, 407.5, 458.5, 407.5, 458.5, 396.5, 464.5, 391.5">
+            <area title="St. Catherine Of Siena" alt="St. Catherine Of Siena, Salt Lake City"
+                href="./index.html#salt_lake_city-st_catherine_of_siena" shape="poly"
+                coords="602, 259.5, 647, 260.5, 664, 279.5, 664, 302.5, 655.5, 308, 605.5, 306.5, 590.5, 294.5, 590.5, 268">
+            <area title="St. Patrick" alt="St. Patrick, Salt Lake City" href="./index.html#salt_lake_city-st_patrick"
+                shape="poly"
+                coords="525.5, 282.5, 535.5, 275, 548, 275, 564, 296.5, 585, 315.5, 584.5, 329, 526.5, 329, 522, 307.5">
+            <area title="St. Vincent De Paul" alt="St. Vincent De Paul, Salt Lake City"
+                href="./index.html#salt_lake_city-st_vincent_de_paul" shape="poly"
+                coords="594, 413, 626, 413, 632, 450, 644.5, 460.5, 644.5, 498, 577.5, 497, 577.5, 458, 593, 448.5">
+            <area title="Blessed Sacrament" alt="Blessed Sacrament, Sandy" href="./index.html#sandy-blessed_sacrament"
+                shape="poly"
+                coords="541, 724, 573, 724, 579, 761, 588.5, 770.5, 588.5, 803, 527, 803, 528.5, 770.5, 540, 759.5">
+            <area title="St. Thomas Moore" alt="St. Thomas Moore, Sandy" href="./index.html#sandy-st_thomas_moore"
+                shape="poly"
+                coords="738, 575, 770, 575, 781, 613, 800.5, 634.5, 800.5, 645, 708.5, 645, 708.5, 631, 729, 613">
+            <area title="St. Martin De Porres" alt="St. Martin De Porres, Taylorsville"
+                href="./index.html#taylorsville-st_martin_de_porres" shape="poly"
+                coords="357, 449, 389, 449, 400.5, 473.5, 431.5, 495.5, 431.5, 520, 321.5, 519, 321.5, 493, 346, 478">
+            <area title="St. Joseph The Worker" alt="St. Joseph The Worker, West Jordan"
+                href="./index.html#west_jordan-st_joseph_the_worker" shape="poly"
+                coords="347, 564, 379, 564, 384, 591, 401.5, 611.5, 396.5, 647, 327.5, 647, 325.5, 607, 340, 592.5">
+            <area title="Saints Peter And Paul" alt="Saints Peter And Paul, West Valley"
+                href="./index.html#west_valley-saints_peter_and_paul" shape="poly"
+                coords="227, 442, 259, 442, 267.5, 473, 279.5, 488.5, 279.5, 525.5, 208, 524.5, 208, 486, 219.5, 471.5">
+            <!-- SLC Stations -->
+            <area title="Our Lady Of The Snows Center" alt="Our Lady Of The Snows Center, Alta"
+                href="./index.html#alta-our_lady_of_the_snows_center" shape="poly"
+                coords="952.5, 575.5, 971.5, 575.5, 996.5, 619.5, 996.5, 631, 985, 649.5, 935, 649.5, 927, 641, 927, 927, 621">
+        </map>
+    </div>
+
+    <div class="modals">
+        <!-- SLC Zoom Modal-->
+        <dialog id="SLC_Zoom" class="modal">
+            <div class="modal-content">
+                <button onclick="document.getElementById('SLC_Zoom').close();" class="close">×</button>
+
+                <img id="dynamic-image" usemap="#slc_map" src="./slc_zoom.svg" alt="slc-map">
+
+                <map name="slc-map">
+
+                </map>
+            </div>
+        </dialog>
+    </div>
+</body>
