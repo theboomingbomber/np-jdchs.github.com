@@ -39,11 +39,13 @@
         <dialog id="oh_no" class="modal">
             <div class="modal-content"><button onclick="document.getElementById('oh_no').close();"
                     class="close">×</button>
-                <h1 class="modal-title">oh no...</h1>
+                <h1 class="modal-title">Sorry...</h1>
                 <dl>
-                    <dt>There's no info for this location...</dt>
-                    <dd>try looking it up yourself</dd>
+                    <dt>Weve scoured all of our databases and couldn't find the one you were looking for.</dt>
+                    <dd>You can still check out many other locations in Utah.</dd>
                 </dl>
+
+                <button onclick="window.location.href='https://www.dioslc.org/';">Try looking for the parish on the Catholic Diocese of Salt Lake City Page</button>
                 <button onclick="window.location.href='./map.html';">Utah Map &#8594;</button>
                 <button onclick="window.location.href='./zoom.html';">SLC Zoom &#8594;</button>
             </div>
