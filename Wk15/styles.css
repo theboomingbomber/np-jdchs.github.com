@@ -22,7 +22,7 @@ h1 {
 h2 {
     text-align: center;
     margin-top: 10px;
-    font-size: xx-large;
+    font-size: 60px;
     color: #222222
 }
 
@@ -31,6 +31,8 @@ h2 {
     flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 100px;
+    text-align: center;
+
 }
 
 .home-flex-items {
@@ -42,6 +44,7 @@ h2 {
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s ease;
+    text-align: center;
 }
 
 .home-flex-items:hover {
@@ -64,7 +67,7 @@ h2 {
     line-height: normal;
     margin-top: -20px;
     padding: 10px;
-    text-align: justify;
+    text-align: center;
 }
 
 @media screen and (max-width: 1000px) {
@@ -84,8 +87,8 @@ h2 {
     flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 100px;
-    max-width: 1100px;
     margin: auto;
+    max-width: 1900px;
 }
 
 .home-flex-items-specific {
@@ -96,6 +99,7 @@ h2 {
     font-size: 30px;
     border-radius: 10px;
     transition: all 0.2s ease;
+    max-height: 40%;
 }
 
 .home-flex-items-specific img {
@@ -105,6 +109,7 @@ h2 {
     border-radius: 8px;
     margin-bottom: 0px;
     padding-bottom: 0px;
+    max-height: calc(50vh - 110px);
 }
 
 .home-flex-items-specific p {
