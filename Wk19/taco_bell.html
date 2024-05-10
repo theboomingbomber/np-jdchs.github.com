@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Best Meals</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" href="./favicon.png" type="image/x-icon">
+</head>
+
+<body>
+	<div class="cart">
+		<div class="title-container">
+			<a href="./habit_burger.html" class="nav-button">Habit Burger</a>
+			<div class="title-icon-container">
+				<img src="./images/taco_bell/taco_bell-icon.png" alt="Chick-fil-A Icon" class="title-icon">
+				<h1 class="cart-title">Taco Bell</h1>
+			</div>
+			<a href="./chick_fil_a.html" class="nav-button">Chick-fil-A</a>
+		</div>
+
+		<div class="main">
+			<div class="products">
+				<div class="item" data-title="Crunchwrap Supreme®"
+					data-description="They fit everything you could possibly want or need into a one-handed meal staple. With seasoned beef, nacho cheese sauce, lettuce, tomatoes, and a crunchy tostada shell for extra loud chewability, this is the product that wrote, and broke, all the rules."
+					data-image="./images/taco_bell/crunchwrap_supreme.jpg">
+					<img src="./images/taco_bell/crunchwrap_supreme.jpg" alt="Product 1" class="product-image">
+					<div class="product-details">
+						<h2 class="product-title">Crunchwrap Supreme®</h2>
+						<p class="product-price">$5.99</p>
+						<p class="product-calories">Calories: 540</p>
+					</div>
+				</div>
+				<!--They fit everything you could possibly want or need into a one-handed meal staple. With seasoned beef, nacho cheese sauce, lettuce, tomatoes, and a crunchy tostada shell for extra loud chewability, this is the product that wrote, and broke, all the rules.-->
+				<div class="item" data-title="Secret Aardvark Nacho Fries"
+					data-description="Golden, crispy Nacho Fries topped with Secret Aardvark Serrabanero Ranch Sauce. This ranch-based sauce is made with green tomatoes, serrano peppers, roasted tomatillos, garlic, green habaneros & jalapeños, lime juice, cilantro, and spices."
+					data-image="./images/taco_bell/secret_aardvark_nacho_fries.jpg">
+					<img src="./images/taco_bell/secret_aardvark_nacho_fries.jpg" alt="Product 1" class="product-image">
+					<div class="product-details">
+						<h2 class="product-title">Secret Aardvark Nacho Fries</h2>
+						<p class="product-price">$4.99</p>
+						<p class="product-calories">Calories: 510</p>
+					</div>
+				</div>
+				<!--Golden, crispy Nacho Fries topped with Secret Aardvark Serrabanero Ranch Sauce. This ranch-based sauce is made with green tomatoes, serrano peppers, roasted tomatillos, garlic, green habaneros & jalapeños, lime juice, cilantro, and spices.-->
+				<div class="item" data-title="MTN DEW® Baja Blast®"
+					data-description="We're obviously speculating here, since even trying to drink an intense tropical storm would basically be impossible. Lucky for you, the Mountain Dew® Baja Blast™ is possible."
+					data-image="./images/taco_bell/mountain_dew_baja_blast.jpg">
+					<img src="./images/taco_bell/mountain_dew_baja_blast.jpg" alt="Product 1" class="product-image">
+					<div class="product-details">
+						<h2 class="product-title">Large MTN DEW® Baja Blast®</h2>
+						<p class="product-price">$2.99</p>
+						<p class="product-calories">Calories: 420</p>
+					</div>
+				</div>
+				<!--We're obviously speculating here, since even trying to drink an intense tropical storm would basically be impossible. Lucky for you, the Mountain Dew® Baja Blast™ is possible.-->
+				<div class="item" data-title="Cinnamon Twists"
+					data-description="The Cinnamon Twist. Just a simple, innocent, delicious cinnamon sugar snack."
+					data-image="./images/taco_bell/cinnamon_twists.jpg">
+					<img src="./images/taco_bell/cinnamon_twists.jpg" alt="Product 1" class="product-image">
+					<div class="product-details">
+						<h2 class="product-title">Cinnamon Twists</h2>
+						<p class="product-price">$1.29</p>
+						<p class="product-calories">Calories: 170</p>
+					</div>
+				</div>
+				<!--The Cinnamon Twist. Just a simple, innocent, delicious cinnamon sugar snack.-->
+			</div>
+			<div class="product-sidebar">
+				<img src="./images/taco_bell/taco_bell-icon.png" alt="sidebar-image" id="sidebar-image">
+				<p class="sidebar-title">
+					Live Mas
+				</p>
+				<p class="sidebar-description">
+					At Taco Bell, we're not just about tacos; we're about igniting your taste buds and sparking joy. Our
+					menu is a passport to flavor, and every bite is a mini escapade. We invite you to embrace the
+					zestier side of life. Whether you're grabbing a late-night snack or celebrating Taco Tuesday, let
+					your taste buds salsa-dance. Live boldly, eat boldly!
+				</p>
+			</div>
+		</div>
+		<!-- more items here -->
+		<div class="cart-subtotal">
+			<p class="subtotal-title">Subtotal:</p>
+			<p class="subtotal-price">$10.00</p>
+		</div>
+		<div class="cart-total">
+			<p class="total-title">Total:</p>
+			<p class="total-price">$10.00</p>
+		</div>
+	</div>
+
+	<script>
+		// Calculate subtotal
+		var productPrices = document.getElementsByClassName("product-price");
+		var subtotal = 0;
+		for (var i = 0; i < productPrices.length; i++) {
+			var price = parseFloat(productPrices[i].innerText.replace("$", ""));
+			subtotal += price;
+		}
+		document.querySelector(".subtotal-price").innerText = "$" + subtotal.toFixed(2);
+
+		// Calculate total with tax
+		var taxRate = 0.09; // 10% tax rate
+		var total = subtotal + (subtotal * taxRate);
+		document.querySelector(".total-price").innerText = "$" + total.toFixed(2);
+
+		// Get all the items and the sidebar elements
+		var items = document.getElementsByClassName("item");
+		var sidebarImage = document.querySelector("#sidebar-image");
+		var sidebarTitle = document.querySelector(".sidebar-title");
+		var sidebarDescription = document.querySelector(".sidebar-description");
+
+		// Store the default sidebar elements
+		var defaultImage = sidebarImage.src;
+		var defaultTitle = sidebarTitle.textContent;
+		var defaultDescription = sidebarDescription.textContent;
+
+		// Add a hover event listener to each item
+		for (var i = 0; i < items.length; i++) {
+			items[i].addEventListener("mouseover", function () {
+				// When an item is hovered over, replace the sidebar elements with the item's elements
+				sidebarImage.src = this.getAttribute("data-image");
+				sidebarTitle.textContent = this.getAttribute("data-title");
+				sidebarDescription.textContent = this.getAttribute("data-description");
+			});
+
+			items[i].addEventListener("mouseout", function () {
+				// When the mouse leaves an item, reset the sidebar elements to the defaults
+				sidebarImage.src = defaultImage;
+				sidebarTitle.textContent = defaultTitle;
+				sidebarDescription.textContent = defaultDescription;
+			});
+		}
+	</script>
+</body>
+
+</html>

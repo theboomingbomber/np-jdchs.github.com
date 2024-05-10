@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Best Meals</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="./favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="cart">
+        <div class="title-container">
+            <a href="./chick_fil_a.html" class="nav-button">Chick-fil-A</a>
+            <div class="title-icon-container">
+                <img src="./images/habit_burger/habit_burger-icon.svg" alt="Chick-fil-A Icon" class="title-icon">
+                <h1 class="cart-title">Habit Burger</h1>
+            </div>
+            <a href="./taco_bell.html" class="nav-button">Taco Bell</a>
+        </div>
+
+        <div class="main">
+            <div class="products">
+                <div class="item" data-title="Double Charburger"
+                    data-description="Two freshly chargrilled beef patties, caramelized onions, crisp lettuce, fresh tomato, pickles, mayo, and cheese on a toasted bun."
+                    data-image="./images/habit_burger/Double_Charburger.png">
+                    <img src="./images/habit_burger/Double_Charburger.png" alt="Product 1" class="product-image">
+                    <div class="product-details">
+                        <h2 class="product-title">Double Charburger w/ Cheese</h2>
+                        <p class="product-price">$7.89</p>
+                        <p class="product-calories">Calories: 870</p>
+                    </div>
+                </div>
+                <!--Two freshly chargrilled beef patties, caramelized onions, crisp lettuce, fresh tomato, pickles, mayo, and cheese on a toasted bun.-->
+                <div class="item" data-title="Parmesan Garlic Fries"
+                    data-description="Golden crisp fries with topped with shredded Parmesan Cheese and a Parmesan Garlic Sauce"
+                    data-image="./images/habit_burger/Parmesan_Garlic_Fries.png">
+                    <img src="./images/habit_burger/Parmesan_Garlic_Fries.png" alt="Product 1" class="product-image">
+                    <div class="product-details">
+                        <h2 class="product-title">Parmesan Garlic Fries</h2>
+                        <p class="product-price">$4.19</p>
+                        <p class="product-calories">Calories: 480</p>
+                    </div>
+                </div><!--Golden crisp fries with topped with shredded Parmesan Cheese and a Parmesan Garlic Sauce-->
+                <div class="item" data-title="Large Drink"
+                    data-description="Have your choice of founatain drink. Options include: BARQ’S ROOT BEER®, BLACK TEA, COKE®, DIET COKE®, GLACEAU VITAMINWATER®, MINUTE MAID® LEMONADE, MINUTE MAID® LIGHT™ LEMONADE, MINUTE MAID® LIGHT™ POMEGRANATE LEMONADE, PIBB® XTRA, POWERADE® MOUNTAIN BLAST, SPRITE®, STRAWBERRY LIMEADE, or TROPICAL TEA."
+                    data-image="./images/habit_burger/Large_Drink.png">
+                    <img src="./images/habit_burger/Large_Drink.png" alt="Product 1" class="product-image">
+                    <div class="product-details">
+                        <h2 class="product-title">Large Drink</h2>
+                        <p class="product-price">$3.29</p>
+                        <p class="product-calories">Calories: 0-296</p>
+                    </div>
+                </div>
+                <!--Have your choice of founatain drink. Options include: BARQ’S ROOT BEER®, BLACK TEA, COKE®, DIET COKE®, GLACEAU VITAMINWATER®, MINUTE MAID® LEMONADE, MINUTE MAID® LIGHT™ LEMONADE, MINUTE MAID® LIGHT™ POMEGRANATE LEMONADE, PIBB® XTRA, POWERADE® MOUNTAIN BLAST, SPRITE®, STRAWBERRY LIMEADE, or TROPICAL TEA.-->
+                <div class="item" data-title="Cinnamon Toast Crunch Shake"
+                    data-description="Handcrafted and made-to-order. Blended with vanilla ice cream and Cinnamon Toast Crunch (TM) cereal."
+                    data-image="./images/habit_burger/Cinnamon_Toast_Crunch_Shake.png">
+                    <img src="./images/habit_burger/Cinnamon_Toast_Crunch_Shake.png" alt="Product 1"
+                        class="product-image">
+                    <div class="product-details">
+                        <h2 class="product-title">Cinnamon Toast Crunch Shake</h2>
+                        <p class="product-price">$5.39</p>
+                        <p class="product-calories">Calories: ???</p>
+                    </div>
+                </div>
+                <!--Handcrafted and made-to-order. Blended with vanilla ice cream and Cinnamon Toast Crunch (TM) cereal.-->
+            </div>
+            <div class="product-sidebar">
+                <img src="./images/habit_burger/habit_burger-about.png" alt="sidebar-image" id="sidebar-image">
+                <p class="sidebar-title">
+                    THE SPIRIT OF SANTA BARBARA IS AT THE HEART OF EVERYTHING WE DO AT THE HABIT.
+                </p>
+                <p class="sidebar-description">
+                    &emsp;Inspired by this coastal town's laid-back vibrancy and passion for culinary exploration, a
+                    simple idea formed: <br>
+                    &emsp;<span style="font-weight: bold;">THE LOVE OF THE CRAFT</span><br><br>
+                    &emsp;This means always chargrilling our burgers over an open flame.
+                    It means using only the best ingredients we can find. And bringing everything together through our
+                    genuine, world-class hospitality. In the end, it all comes from that first idea. A vision that
+                    became our Habit.
+                </p>
+            </div>
+        </div>
+        <!-- more items here -->
+        <div class="cart-subtotal">
+            <p class="subtotal-title">Subtotal:</p>
+            <p class="subtotal-price">$10.00</p>
+        </div>
+        <div class="cart-total">
+            <p class="total-title">Total:</p>
+            <p class="total-price">$10.00</p>
+        </div>
+    </div>
+
+    <script>
+        // Calculate subtotal
+        var productPrices = document.getElementsByClassName("product-price");
+        var subtotal = 0;
+        for (var i = 0; i < productPrices.length; i++) {
+            var price = parseFloat(productPrices[i].innerText.replace("$", ""));
+            subtotal += price;
+        }
+        document.querySelector(".subtotal-price").innerText = "$" + subtotal.toFixed(2);
+
+        // Calculate total with tax
+        var taxRate = 0.09; // 10% tax rate
+        var total = subtotal + (subtotal * taxRate);
+        document.querySelector(".total-price").innerText = "$" + total.toFixed(2);
+
+        // Get all the items and the sidebar elements
+        var items = document.getElementsByClassName("item");
+        var sidebarImage = document.querySelector("#sidebar-image");
+        var sidebarTitle = document.querySelector(".sidebar-title");
+        var sidebarDescription = document.querySelector(".sidebar-description");
+
+        // Store the default sidebar elements
+        var defaultImage = sidebarImage.src;
+        var defaultTitle = sidebarTitle.textContent;
+        var defaultDescription = sidebarDescription.textContent;
+
+        // Add a hover event listener to each item
+        for (var i = 0; i < items.length; i++) {
+            items[i].addEventListener("mouseover", function () {
+                // When an item is hovered over, replace the sidebar elements with the item's elements
+                sidebarImage.src = this.getAttribute("data-image");
+                sidebarTitle.textContent = this.getAttribute("data-title");
+                sidebarDescription.textContent = this.getAttribute("data-description");
+            });
+
+            items[i].addEventListener("mouseout", function () {
+                // When the mouse leaves an item, reset the sidebar elements to the defaults
+                sidebarImage.src = defaultImage;
+                sidebarTitle.textContent = defaultTitle;
+                sidebarDescription.textContent = defaultDescription;
+            });
+        }
+    </script>
+</body>
+
+</html>

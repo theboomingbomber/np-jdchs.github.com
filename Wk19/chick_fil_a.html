@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Best Meals</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="./favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="cart">
+        <div class="title-container">
+            <a href="./taco_bell.html" class="nav-button">Taco Bell</a>
+            <div class="title-icon-container">
+                <img src="./images/chick_fil_a/chick_fil_a-icon.svg" alt="Chick-fil-A Icon" class="title-icon">
+                <h1 class="cart-title">Chick-fil-A</h1>
+            </div>
+            <a href="./habit_burger.html" class="nav-button">Habit Burger</a>
+        </div>
+
+        <div class="main">
+            <div class="products">
+                <div class="item" data-title="Spicy Deluxe Sandwich"
+                    data-description="A boneless breast of chicken seasoned with a spicy blend of peppers, freshly breaded, pressure cooked in 100% refined peanut oil and served on a toasted, buttered bun with dill pickle chips, green leaf lettuce, tomato and Pepper Jack Cheese. Also available on a multigrain bun."
+                    data-image="./images/chick_fil_a/Entrees_Sandwich_Spicy_Deluxe-pepperjack.png">
+                    <img src="./images/chick_fil_a/Entrees_Sandwich_Spicy_Deluxe-pepperjack.png" alt="Product 1"
+                        class="product-image">
+                    <div class="product-details">
+                        <h2 class="product-title">Spicy Deluxe Sandwich w/ Pepper Jack</h2>
+                        <p class="product-price">$6.19</p>
+                        <p class="product-calories">Calories: 520</p>
+                    </div>
+                </div>
+                <!-- A boneless breast of chicken seasoned with a spicy blend of peppers, freshly breaded, pressure cooked in 100% refined peanut oil and served on a toasted, buttered bun with dill pickle chips, green leaf lettuce, tomato and Pepper Jack Cheese. Also available on a multigrain bun. -->
+                <div class="item" data-title="Chick-fil-A Waffle Potato Fries®"
+                    data-description="Waffle-cut potatoes cooked in canola oil until crispy outside and tender inside. Sprinkled with Sea Salt."
+                    data-image="./images/chick_fil_a/Sides_Waffle_Fries.png">
+                    <img src="./images/chick_fil_a/Sides_Waffle_Fries.png" alt="Product 1" class="product-image">
+                    <div class="product-details">
+                        <h2 class="product-title">Medium Chick-fil-A Waffle Potato Fries®</h2>
+                        <p class="product-price">$2.59</p>
+                        <p class="product-calories">Calories: 420</p>
+                    </div>
+                </div>
+                <!-- Waffle-cut potatoes cooked in canola oil until crispy outside and tender inside. Sprinkled with Sea Salt.-->
+                <div class="item" data-title="Cherry Berry Sunjoy®"
+                    data-description="A combination of our Sunjoy® beverage (Chick-fil-A® Lemonade and freshly-brewed Sweetened Iced Tea) and delicious cherry, blueberry, and cranberry flavors for a refreshing taste. Also available with combinations of Chick-fil-A® Diet Lemonade or Unsweetened Iced Tea. Available for a limited time at participating locations while supplies last."
+                    data-image="./images/chick_fil_a/CherryBerrySunjoy.png">
+                    <img src="./images/chick_fil_a/CherryBerrySunjoy.png" alt="Product 1" class="product-image">
+                    <div class="product-details">
+                        <h2 class="product-title">Cherry Berry Sunjoy®</h2>
+                        <p class="product-price">$2.75</p>
+                        <p class="product-calories">Calories: 160</p>
+                    </div>
+                </div>
+                <!--A combination of our Sunjoy® beverage (Chick-fil-A® Lemonade and freshly-brewed Sweetened Iced Tea) and delicious cherry, blueberry, and cranberry flavors for a refreshing taste. Also available with combinations of Chick-fil-A® Diet Lemonade or Unsweetened Iced Tea. Available for a limited time at participating locations while supplies last.-->
+                <div class="item" data-title="Chocolate Chunk Cookie"
+                    data-description="Baked each day in our Restaurants, these cookies have both semi-sweet dark and milk chocolate chunks, along with wholesome oats for an old-fashioned touch."
+                    data-image="./images/chick_fil_a/one_cookie.png">
+                    <img src="./images/chick_fil_a/one_cookie.png" alt="Product 1" class="product-image">
+                    <div class="product-details">
+                        <h2 class="product-title">Chocolate Chunk Cookie</h2>
+                        <p class="product-price">$1.69</p>
+                        <p class="product-calories">Calories: 370</p>
+                    </div>
+                </div>
+                <!--Baked each day in our Restaurants, these cookies have both semi-sweet dark and milk chocolate chunks, along with wholesome oats for an old-fashioned touch.-->
+            </div>
+            <div class="product-sidebar">
+                <img src="./images/chick_fil_a/chick_fil_a-about.jpg" alt="sidebar-image" id="sidebar-image">
+                <p class="sidebar-title">
+                    It starts with a smile
+                </p>
+                <p class="sidebar-description">
+                    Whether greeting you at the drive-thru or making your meal inside the restaurant, Chick-fil-A Team
+                    Members strive to serve up memorable experiences for each and every guest. And we hope that dining
+                    with us inspires you to spread that sense of warmth to others, too.
+                </p>
+            </div>
+        </div>
+        <!-- more items here -->
+        <div class="cart-subtotal">
+            <p class="subtotal-title">Subtotal:</p>
+            <p class="subtotal-price">$10.00</p>
+        </div>
+        <div class="cart-total">
+            <p class="total-title">Total:</p>
+            <p class="total-price">$10.00</p>
+        </div>
+    </div>
+
+    <script>
+        // Calculate subtotal
+        var productPrices = document.getElementsByClassName("product-price");
+        var subtotal = 0;
+        for (var i = 0; i < productPrices.length; i++) {
+            var price = parseFloat(productPrices[i].innerText.replace("$", ""));
+            subtotal += price;
+        }
+        document.querySelector(".subtotal-price").innerText = "$" + subtotal.toFixed(2);
+
+        // Calculate total with tax
+        var taxRate = 0.09; // 10% tax rate
+        var total = subtotal + (subtotal * taxRate);
+        document.querySelector(".total-price").innerText = "$" + total.toFixed(2);
+
+        // Get all the items and the sidebar elements
+        var items = document.getElementsByClassName("item");
+        var sidebarImage = document.querySelector("#sidebar-image");
+        var sidebarTitle = document.querySelector(".sidebar-title");
+        var sidebarDescription = document.querySelector(".sidebar-description");
+
+        // Store the default sidebar elements
+        var defaultImage = sidebarImage.src;
+        var defaultTitle = sidebarTitle.textContent;
+        var defaultDescription = sidebarDescription.textContent;
+
+        // Add a hover event listener to each item
+        for (var i = 0; i < items.length; i++) {
+            items[i].addEventListener("mouseover", function () {
+                // When an item is hovered over, replace the sidebar elements with the item's elements
+                sidebarImage.src = this.getAttribute("data-image");
+                sidebarTitle.textContent = this.getAttribute("data-title");
+                sidebarDescription.textContent = this.getAttribute("data-description");
+            });
+
+            items[i].addEventListener("mouseout", function () {
+                // When the mouse leaves an item, reset the sidebar elements to the defaults
+                sidebarImage.src = defaultImage;
+                sidebarTitle.textContent = defaultTitle;
+                sidebarDescription.textContent = defaultDescription;
+            });
+        }
+    </script>
+</body>
+
+</html>
