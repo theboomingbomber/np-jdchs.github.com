@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navajo Lake</title>
+    <link rel="icon" type="image/x-icon" href="./mountain.svg">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<script>
+    class CommonHeader extends HTMLElement {
+  
+  connectedCallback(){
+      this.innerHTML = `
+      <div class="sidebar">
+      <button onclick="window.location.href='./';" class="navbutton">
+          Home
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Nebo.html';" class="navbutton">
+          Mt. Nebo
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Timpanogos.html';" class="navbutton">
+          Mt. Timpanogos
+      </button>
+      <br>
+      <button onclick="window.location.href='./Lone_Peak.html';" class="navbutton">
+          Lone Peak
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Olympus.html';" class="navbutton">
+          Mt. Olympus
+      </button>
+      <br>
+      <button onclick="window.location.href='./Grandeur_Peak.html';" class="navbutton">
+          Grandeur Peak
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Ben_Lomond.html';" class="navbutton">
+          Mt. Ben Lomond
+      </button>
+      <button onclick="window.location.href='./Navajo_Lake.html';" class="navbutton">
+          Navajo Lake
+      </button>
+      <button onclick="window.location.href='./Great_Salt_Lake.html';" class="navbutton">
+          Great Salt Lake
+      </button>
+  </div>`
+      }
+  }
+  customElements.define('common-header', CommonHeader)
+</script>
+<body>
+    <common-header></common-header>
+    <div class="content">
+        <h1>Navajo Lake</h1>
+
+        <div class="stuff">
+        <div class="chnk">
+            <img src="./Navajo_Lake/Navajo_Lake_1.jpeg" alt="Mt. Ben Lomond Image 1">
+            <p>Navajo Lake is a large reservoir located in southwestern Colorado and northeastern New Mexico, United States. The lake is situated in the San Juan Basin, approximately 30 miles north of Farmington, New Mexico. With a surface area of over 15,000 acres and a maximum depth of 130 feet, Navajo Lake is a popular destination for outdoor recreation and fishing. The lake is known for its clear waters, scenic shoreline, and abundant wildlife, including deer, turkey, and waterfowl.</p>
+        </div>
+          
+        <div class="chnk">
+            <img src="./Navajo_Lake/Navajo_Lake_2.jpg" alt="Mt. Ben Lomond Image 2">
+            <p>The lake is also a popular spot for boating, water skiing, and swimming. Visitors can rent boats or take a guided tour to explore the lake's many coves and inlets. In the winter, the lake freezes over, making it a popular spot for ice fishing and ice skating. Navajo Lake is also a significant habitat for migratory birds, with over 200 species documented in the area. The lake's wetlands and surrounding wetlands provide a vital stopover for many species of waterfowl, shorebirds, and songbirds.</p>
+        </div>
+          
+        <div class="chnk">
+            <img src="./Navajo_Lake/Navajo_Lake_3.jpg" alt="Mt. Ben Lomond Image 3">
+            <p>Navajo Lake is managed by the Navajo Nation, which has implemented conservation efforts to protect the lake's ecosystem and wildlife. The lake is also home to several Native American tribes, including the Navajo Nation, the Ute Mountain Ute Tribe, and the Southern Ute Indian Tribe. Visitors to the lake can learn about the region's rich cultural heritage by visiting the Navajo Nation Museum or attending one of the many cultural events held throughout the year. Overall, Navajo Lake is a unique and fascinating destination that offers something for everyone, from outdoor recreation to cultural exploration.</p>
+        </div>
+    </div>
+</body>
+</html>

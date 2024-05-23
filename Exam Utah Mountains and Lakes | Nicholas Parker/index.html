@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Utah Mountains and Lakes</title>
+    <link rel="icon" type="image/x-icon" href="./mountain.svg">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<script>
+    class CommonHeader extends HTMLElement {
+  
+  connectedCallback(){
+      this.innerHTML = `
+      <div class="sidebar">
+      <button onclick="window.location.href='./';" class="navbutton">
+          Home
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Nebo.html';" class="navbutton">
+          Mt. Nebo
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Timpanogos.html';" class="navbutton">
+          Mt. Timpanogos
+      </button>
+      <br>
+      <button onclick="window.location.href='./Lone_Peak.html';" class="navbutton">
+          Lone Peak
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Olympus.html';" class="navbutton">
+          Mt. Olympus
+      </button>
+      <br>
+      <button onclick="window.location.href='./Grandeur_Peak.html';" class="navbutton">
+          Grandeur Peak
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Ben_Lomond.html';" class="navbutton">
+          Mt. Ben Lomond
+      </button>
+      <button onclick="window.location.href='./Navajo_Lake.html';" class="navbutton">
+          Navajo Lake
+      </button>
+      <button onclick="window.location.href='./Great_Salt_Lake.html';" class="navbutton">
+          Great Salt Lake
+      </button>
+  </div>`
+      }
+  }
+  customElements.define('common-header', CommonHeader)
+</script>
+<body>
+    <common-header></common-header>
+
+    <div class="content">
+        <h1>Utah Mountains and Lakes</h1>
+
+
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="./Wasatch_Mountains/Wasatch_Mountains_1.webp" alt="image 1">
+            </div>
+            <div class="grid-item">
+                <img src="./Wasatch_Mountains/Wasatch_Mountains_2.webp" alt="image 2">
+            </div>
+            <div class="grid-item">
+                <img src="./Wasatch_Mountains/thing1.jpg" alt="">
+            </div>  
+            <div class="grid-item">
+                <img src="./Wasatch_Mountains/shjfb.jpeg" alt="">
+            </div>
+        </div>
+        
+    </div>
+ 
+</body>
+</html>

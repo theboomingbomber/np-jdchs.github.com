@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wasatch: Mt. Timpanogos</title>
+    <link rel="icon" type="image/x-icon" href="./mountain.svg">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<script>
+    class CommonHeader extends HTMLElement {
+  
+  connectedCallback(){
+      this.innerHTML = `
+      <div class="sidebar">
+      <button onclick="window.location.href='./';" class="navbutton">
+          Home
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Nebo.html';" class="navbutton">
+          Mt. Nebo
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Timpanogos.html';" class="navbutton">
+          Mt. Timpanogos
+      </button>
+      <br>
+      <button onclick="window.location.href='./Lone_Peak.html';" class="navbutton">
+          Lone Peak
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Olympus.html';" class="navbutton">
+          Mt. Olympus
+      </button>
+      <br>
+      <button onclick="window.location.href='./Grandeur_Peak.html';" class="navbutton">
+          Grandeur Peak
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Ben_Lomond.html';" class="navbutton">
+          Mt. Ben Lomond
+      </button>
+      <button onclick="window.location.href='./Navajo_Lake.html';" class="navbutton">
+          Navajo Lake
+      </button>
+      <button onclick="window.location.href='./Great_Salt_Lake.html';" class="navbutton">
+          Great Salt Lake
+      </button>
+  </div>`
+      }
+  }
+  customElements.define('common-header', CommonHeader)
+</script>
+<body>
+    <common-header></common-header>
+    <div class="content">
+        <h1>Mt. Timpanogos</h1>
+
+        <div class="stuff">
+        <div class="chnk">
+            <img src="./Mt_Timpanogos/Mt_Timpanogos_1.webp" alt="Mt. Timpanogos Image 1">
+            <p>Majestic and iconic, Mt. Timpanogos rises above the Wasatch Front, commanding attention with its striking beauty and rugged terrain. At an elevation of 11,752 feet, it offers a haven for outdoor enthusiasts seeking adventure and solitude amid nature's splendor. The mountain's glacial cirques, alpine meadows, and pristine lakes provide a picturesque backdrop for hiking, climbing, and exploration.</p>
+        </div>
+          
+        <div class="chnk">
+            <img src="./Mt_Timpanogos/Mt_Timpanogos_2.webp" alt="Mt. Timpanogos Image 2">
+            <p>Mt. Timpanogos holds a special place in Utah folklore, with tales of hidden treasures and legendary creatures weaving through its history. For hikers tackling its trails, the reward lies not only in reaching the summit but also in experiencing the mountain's timeless beauty and sense of wilderness. From the rugged terrain of its upper slopes to the tranquil shores of Emerald Lake, Mt. Timpanogos offers a journey of discovery for those willing to explore its depths.</p>
+        </div>
+          
+        <div class="chnk">
+            <img src="./Mt_Timpanogos/Mt_Timpanogos_3.webp" alt="Mt. Timpanogos Image 3">
+            <p>As the sun rises over the Wasatch Range, Mt. Timpanogos casts its shadow across the landscape, beckoning adventurers to embark on a journey into the heart of the mountains. Whether climbing its rocky ridges or traversing its alpine meadows, visitors are sure to be enchanted by Mt. Timpanogos' rugged charm and natural splendor. With each step, the mountain reveals its secrets, inviting exploration and inspiring awe in all who dare to venture into its embrace.</p>
+        </div>
+    </div>
+</body>
+</html>

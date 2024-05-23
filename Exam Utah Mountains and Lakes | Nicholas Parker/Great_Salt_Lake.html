@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Great Salt Lake</title>
+    <link rel="icon" type="image/x-icon" href="./mountain.svg">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<script>
+    class CommonHeader extends HTMLElement {
+  
+  connectedCallback(){
+      this.innerHTML = `
+      <div class="sidebar">
+      <button onclick="window.location.href='./';" class="navbutton">
+          Home
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Nebo.html';" class="navbutton">
+          Mt. Nebo
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Timpanogos.html';" class="navbutton">
+          Mt. Timpanogos
+      </button>
+      <br>
+      <button onclick="window.location.href='./Lone_Peak.html';" class="navbutton">
+          Lone Peak
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Olympus.html';" class="navbutton">
+          Mt. Olympus
+      </button>
+      <br>
+      <button onclick="window.location.href='./Grandeur_Peak.html';" class="navbutton">
+          Grandeur Peak
+      </button>
+      <br>
+      <button onclick="window.location.href='./Mt_Ben_Lomond.html';" class="navbutton">
+          Mt. Ben Lomond
+      </button>
+      <button onclick="window.location.href='./Navajo_Lake.html';" class="navbutton">
+          Navajo Lake
+      </button>
+      <button onclick="window.location.href='./Great_Salt_Lake.html';" class="navbutton">
+          Great Salt Lake
+      </button>
+  </div>`
+      }
+  }
+  customElements.define('common-header', CommonHeader)
+</script>
+<body>
+    <common-header></common-header>
+    <div class="content">
+        <h1>Great Salt Lake</h1>
+
+        <div class="stuff">
+        <div class="chnk">
+            <img src="./Great_Salt_Lake/Great_Salt_Lake_1.webp" alt="Mt. Ben Lomond Image 1">
+            <p>The Great Salt Lake is the largest natural lake west of the Mississippi River and the largest saltwater lake in the Western Hemisphere. Located in the northern part of Utah, the lake is a remnant of the ancient Lake Bonneville, which once covered much of the Great Basin region. The lake is approximately 75 miles long and 35 miles wide, with a maximum depth of about 35 feet. Its unique chemistry and high salt concentration make it an important habitat for a variety of wildlife, including migratory birds, shorebirds, and waterfowl.</p>
+        </div>
+          
+        <div class="chnk">
+            <img src="./Great_Salt_Lake/Great_Salt_Lake_2.webp" alt="Mt. Ben Lomond Image 2">
+            <p>The Great Salt Lake is also a popular destination for outdoor recreation, with activities such as kayaking, paddleboarding, and birdwatching. Visitors can take a guided tour or rent a boat to explore the lake's many islands and coves. The lake's unique chemistry also makes it a popular spot for scientific research, with scientists studying its unique ecosystem and the impact of human activities on the lake's water quality. The lake's shoreline is also home to several Native American tribes, including the Ute and Shoshone tribes, who have a rich cultural heritage and history tied to the lake.</p>
+        </div>
+          
+        <div class="chnk">
+            <img src="./Great_Salt_Lake/Great_Salt_Lake_3.jpg" alt="Mt. Ben Lomond Image 3">
+            <p>Despite its importance, the Great Salt Lake is facing several environmental challenges, including declining water levels, increased salinity, and habitat degradation. Human activities such as agricultural runoff, industrial pollution, and climate change are all contributing to these issues. Efforts are underway to restore the lake's ecosystem and protect its unique wildlife, including habitat restoration projects and water quality monitoring programs. Visitors to the lake can learn more about its history and ecology by visiting the Great Salt Lake State Park or taking a guided tour with a local expert. Overall, the Great Salt Lake is a unique and fascinating destination that offers a glimpse into the region's natural and cultural history.</p>
+        </div>
+    </div>
+</body>
+</html>
